@@ -21,9 +21,9 @@ class NeuralNetwork(nn.Module):
             nn.Linear(context_len * n_embed, 512),
             # nn.Linear(context_len, 512),
             nn.ReLU(),
-            # nn.Linear(512, 256),
-            # nn.ReLU(),
-            # nn.Linear(256, 512),
+            nn.Linear(512, 256),
+            nn.ReLU(),
+            nn.Linear(256, 512),
             nn.ReLU(),
             nn.Linear(512, 256),
             nn.ReLU(),
@@ -39,5 +39,5 @@ class NeuralNetwork(nn.Module):
         if y is None:
             loss = None
         else:
-            loss = F.binary_cross_entropy(torch.sigmoid(logits), y)
+            loss = F.binary_cross_entropy_with_logits(logits, y)
         return torch.sigmoid(logits), loss

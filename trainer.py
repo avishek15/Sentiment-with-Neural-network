@@ -9,13 +9,13 @@ from data_processing import get_data, preprocess_data, encoder
 from neuralNet import NeuralNetwork, device
 
 if __name__ == '__main__':
-    context_len = 72
-    n_embed = 28
-    learning_rate = 1e-3
+    context_len = 64
+    n_embed = 64
+    learning_rate = 1e-1
     batch_size = 32
     eval_iters = 100
     max_iters = 10000
-    eval_interval = 50
+    eval_interval = 500
 
     d1, d2, d3 = get_data()
     start_time = perf_counter()
